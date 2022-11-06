@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('components/header') %>
+<body>
+
+    <%- include('components/navbar') %>
+    <div class="container view-container">
+        <% if(messages.info) { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <%= messages.info %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+        <h1 class="index-header">All Hotels</h1>
+        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" data-bs-target="#newFormModal">Add</button>
+        <br>
+        <br>
+        <div class="row">
+            <% for( let hotel of hotels ) { %>
+                <div class="col col-lg-3 col-md-6 col-sm-12">
+                    <div class="card">
+                        <a href="/hotel/<%= hotel.id%>"><img src="https://source.unsplash.com/random/400x300" class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                            <a style="text-decoration: none; color: black;" href="/hotel/<%= hotel.id%>"><h5 class="card-title"><%= hotel.name%></h5></a>
+                            <div style="margin-bottom: 10px;">
+                                <i class="fa-solid fa-location-dot"></i>  <span class="card-text"><%= hotel.location%></span>
+                            </div>
+                            <a href="/hotel/<%= hotel.id%>"><button class="btn btn-primary btn-view">View Details</button></a>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
+

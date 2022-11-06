@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('components/header') %>  
+<body>
+    <%- include('components/navbar') %> 
+        <div class="container">
+            <%- include('forms/updateForm') %>
+            <% if(messages.info) { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <%= messages.info %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% } %>
+            <a href="/" class="all-hotel">Hotel</a> <i class="fa-solid fa-greater-than"></i> <span class="hotel-span"><%= hotel.name%></span>
+            <div class="row">
+                <h1 class="hotel-name"><%= hotel.name %></h1>
+                <div id="carouselExampleIndicators" class="carousel slide col-lg-8" data-bs-ride="true" style="height: 60%;">
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://source.unsplash.com/_dS27XGgRyQ" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://source.unsplash.com/M7GddPqJowg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://source.unsplash.com/rlwE8f8anOc" class="d-block w-100" alt="...">
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="col-lg-4 hotel-info">
+                    <div class="d-flex flex-column mb-3">
+                        <div class="p-2 card-text"><i class="fa-solid fa-location-dot"></i> Location: <h3><%= hotel.location %></h3></div>
+                        <div class="p-2 card-text"><i class="fa-solid fa-tags"></i> Description: <p><%= hotel.description %></p></div>
+                        <div class="p-2 card-text"><i class="fa-sharp fa-solid fa-peso-sign"></i> Cost per Stay: <p><%= hotel.cost.toLocaleString('en-US') %>/Head</p></div>
+                        <div class="p-2 card-text"><i class="fa-solid fa-tags"></i> Date Added: <p><%= hotel.date.slice(0,15) %></p></div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateFormModal"><i class="fa-solid fa-pen-to-square btn-logo"></i></button>
+                        <form action="/delete/<%= hotel.id%>?method=DELETE" method="post">
+                            <button class="btn btn-danger" style="width: 100%; margin-top: 5px;"><i class="fa-solid fa-trash btn-logo"></i></button>
+                        </form>
+                        <hr>
+                        <div class="p-2"><i class="fa-solid fa-star"></i> Ratings: <i>No ratings yet...</i></div>
+                    </div>
+                </div>
+            </div>
+            <section style="margin: 120px 0;">
+                <div class="row">
+                    <h3 class="hotel-name"><%= hotel.name %> Map Location</h3>
+                    <div id="map" style="height: 500px;" class="col-lg-8 col-md-6"></div>
+                    <div class="col-lg-4 col-md-6 book-form">
+                        <h1 class="hotel-name">Book Form</h1>
+                        <form action="#">
+                            <div class="mb-3">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control">
+                            </div>
+                            <button class="btn btn-success" type="submit">Submit Book</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    <script>
+        var map = L.map('map').setView([<%= hotel.latitude %>, <%= hotel.longitude %>], 20);
+
+        var circle = L.circle([<%= hotel.latitude %>, <%= hotel.longitude %>], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 10
+        }).addTo(map);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+    </script>
+</body>
+</html>

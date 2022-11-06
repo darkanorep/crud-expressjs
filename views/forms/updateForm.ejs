@@ -1,0 +1,39 @@
+<div class="modal fade" id="updateFormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update <%= hotel.name%> Data</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/hotel/<%= hotel.id %>?method=PUT" method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Hotel Name</label>
+                    <input type="text" name="name" id="name" class="form-control" value="<%= hotel.name%>" placeholder="Resort World Manila" required>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="location" id="location" class="form-control" value="<%= hotel.location%>" placeholder="Manila" required>
+                </div>
+                <div class="mb-3">
+                    <label for="latitude" class="form-label">Latitude</label>
+                    <input type="text" name="latitude" id="latitude" class="form-control" placeholder="14.518585" value="<%= hotel.latitude%>" required>
+                </div class="mb-3">
+                <div class="mb-3">
+                    <label for="longitude" class="form-label">Longitude</label>
+                    <input type="text" name="longitude" id="longitude" class="form-control" class="form-control" value="<%= hotel.longitude%>" placeholder="121.019779" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cost" class="form-label">Cost Per Stay</label>
+                    <input type="number" name="cost" id="cost" class="form-control" placeholder="3500" value="<%= hotel.cost%>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cost" class="form-label">Description</label>
+                    <textarea type="text" name="description" id="description" class="form-control" placeholder="Resorts World Manila is a provider of....." required><%= hotel.description%></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>

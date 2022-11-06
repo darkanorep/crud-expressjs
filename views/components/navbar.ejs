@@ -1,0 +1,63 @@
+<div class="container sticky-top nav-container">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">ligalig.</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/" id="navbar-nav">hotels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newFormModal" id="navbar-nav">new hotel</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="modal fade" id="newFormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Hotel</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form action="/new" method="post">
+              <div class="mb-3">
+                  <label for="name" class="form-label">Hotel Name</label>
+                  <input type="text" name="name" id="name" class="form-control" placeholder="Resort World Manila" required>
+              </div>
+              <div class="mb-3">
+                  <label for="location" class="form-label">Location</label>
+                  <input type="text" name="location" id="location" class="form-control" placeholder="Manila" required>
+              </div>
+              <div class="mb-3">
+                  <label for="latitude" class="form-label">Latitude</label>
+                  <input type="text" name="latitude" id="latitude" class="form-control" placeholder="14.518585" required>
+              </div class="mb-3">
+              <div class="mb-3">
+                <label for="longitude" class="form-label">Longitude</label>
+                <input type="text" name="longitude" id="longitude" class="form-control" class="form-control" placeholder="121.019779" required>
+            </div>
+              <div class="mb-3">
+                  <label for="cost" class="form-label">Cost Per Stay</label>
+                  <input type="number" name="cost" id="cost" class="form-control" placeholder="3500" required>
+              </div>
+              <div class="mb-3">
+                <label for="cost" class="form-label">Description</label>
+                <textarea type="text" name="description" id="description" class="form-control" placeholder="Resorts World Manila is a provider of....." required></textarea>
+              </div>
+              <input type="text" name="date" id="date" class="form-control" hidden>
+              <button class="btn btn-primary" type="submit" id="btn">Submit</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('date').value = Date();
+</script>

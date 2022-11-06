@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+
+body{
+    background: #163561;
+}
+
+.nav-container {
+    background: #163561;
+}
+
+.navbar-brand {
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.navbar-brand:hover {
+    color: #74dcf1;
+}
+
+.navbar-nav {
+    position: absolute;
+    right: 20px;
+}
+
+#navbar-nav{
+    color: white;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.add-btn {
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px solid #7499F1;
+    border-radius: 9px;
+    background: #163561;
+}
+
+.add-btn:hover {
+    background: #83B1FF;
+}
+
+.add-btn:active{
+    background: #83B1FF;
+}
+
+.btn-view {
+    box-sizing: border-box;
+    border: 1px solid #7499F1;
+    border-radius: 9px;
+    background: #83B1FF;
+}
+
+.btn-view:hover {
+    background: #163561;
+}
+
+.index-header {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+
+}
+
+.card {
+    background: #C7D7F9;
+}
+
+.card:hover {
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+}
+
+.card-title {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: justify;
+    text-transform: capitalize;
+    color: #163561;
+}
+
+.card-text {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: justify;
+
+    color: #000000;
+}
+
+.all-hotel {
+    text-decoration: none;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+
+.all-hotel:hover {
+    color: #FFFFFF;
+}
+
+.fa-solid {
+    color:  #F68247;
+    font-size: 20px;
+    margin: 0 7px;
+}
+
+.hotel-span {
+    position: relative;
+    color: #ffffff;
+}
+
+.hotel-name {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 30px;
+    text-align: justify;
+    text-transform: capitalize;
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+.hotel-info {
+    background: #C7D7F9;
+    border-radius: 0px 20px 20px 0px;
+    padding: 20px;
+}
+
+.btn-logo {
+    color: white;
+}
+
+.book-form {
+    padding: 20px;
+    background: #F68247;
+    border-radius: 0px 0px 20px 0px;
+}
+
+#map {
+    border-radius: 20px 0px 0px 0px;
+}
+
+
+@media(max-width: 991px) {
+    .hotel-info {
+        margin-top: 20px;
+        border-radius: 0px 0px 20px 20px;
+    }
+}
